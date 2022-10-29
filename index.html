@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Conversor de monedas</title>
+        <link rel="stylesheet" href="assets/css/reset.css">
+        <link rel="stylesheet" href="assets/css/reset.css">
+        <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+        crossorigin="anonymous"/>
+        <link rel="stylesheet" href="assets/css/estilos.css">
+    </head>
+    <body>
+        <!-- Contenedor global -->
+        <section class="container p-3 mb-2 bg-dark text-white">
+            <header>
+                <h1 class="fs-1 text-center">Conversor de monedas Nacional</h1>                
+            </header>
+            <section>
+                <div class="row">
+                    <div class="col">
+                    </div>
+                    <div class="col-8">
+                        <section class="container p-3 mb-2 bg-secondary text-white">
+                          <h2>Pesos CLP</h2>
+                              <!-- FLUJO (1) Ingreso de monto a convertir en CLP-->
+                              <input id="monto-a-convertir" type="number" class="form-control" 
+                                  placeholder="Ingrese el monto en CLP" aria-label="Recipient's username" 
+                                  aria-describedby="button-addon2">
+                          <!-- FLUJO (2)  Seleccion de tipo de cambio -->
+                          <h3>Moneda a convertir</h2>
+                          <select id = "tipo-de-cambio" class="form-select" aria-label="Default select example">
+                            <option selected>Seleccionar tipo de cambio</option>
+                            <option value="euro">EURO</option>
+                            <option value="dolar">USD</option>
+                            <option value="uf">UF</option>
+                            <option value="utm">UTM</option>
+                          </select>
+                          <!-- FLUJO (3) Inicio de la conversion -->
+                          <section class="container p-3 mb-2">
+                            <button id ="btn-convertir" type="button" class="btn btn-info ">Buscar</button>
+                          </section>         
+                          <!-- FLUJO (4) Resultado  -->
+                          <h3>Resultado: </h3>
+                          <p id="resultado-conversion"></p>     
+                      </section>                        
+                    </div>
+                    <div class="col">
+                    </div>
+                  </div>
+            </section>
+          </section>
+        <!-- Fin contenedor global -->
+        <script src="assets/js/script.js"></script>
+    </body>
+</html>
