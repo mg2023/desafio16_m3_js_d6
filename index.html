@@ -13,6 +13,7 @@
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
         crossorigin="anonymous"/>
         <link rel="stylesheet" href="assets/css/estilos.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
     <body>
         <!-- Contenedor global -->
@@ -46,7 +47,11 @@
                           </section>         
                           <!-- FLUJO (4) Resultado  -->
                           <h3>Resultado: </h3>
-                          <p id="resultado-conversion"></p>     
+                          <p id="resultado-conversion"></p>
+                          <h1>Gráfica</h1>
+                          <div class="grafica">
+                            <canvas id="myChart"></canvas>
+                          </div>     
                       </section>                        
                     </div>
                     <div class="col">
