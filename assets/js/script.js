@@ -40,18 +40,24 @@ async function getAndCreateDataToChart (tipoDeCambio) {
   const res = await fetch('https://mindicador.cl/api/' + tipoDeCambio)
   const dataraw = await res.json()
 
-  // label tiene los valores y las fechas
+  // Se tienen 10 pares de valores y fechas
   let serie = dataraw.serie.slice(0, 10)
-
   serie = serie.reverse()
-  const labels = serie.map((e) => {
+
+  // Datos para el eje X
+  const labelsRaw = serie.map((e) => {
     return e.fecha
   })
+  // Se quitan las horas ya que son innecesarias para el grafico
+  const labels = []
+  for (const x of labelsRaw) {
+    labels.unshift(x.slice(0, 10))
+  }
+
+  // Datos para el eje Y
   const data = serie.map((e) => {
     return e.valor
   })
-
-  console.log(labels)
 
   const datasets = [
     {
@@ -64,7 +70,6 @@ async function getAndCreateDataToChart (tipoDeCambio) {
 }
 
 async function renderGrafica (tipoDeCambio) {
-  console.log('debug1')
   const data = await getAndCreateDataToChart(tipoDeCambio)
   const config = {
     type: 'line',
