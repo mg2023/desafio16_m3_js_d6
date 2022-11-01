@@ -25,7 +25,7 @@ idBtnConvertir.addEventListener('click', async () => {
   }
 })
 
-// Para convertir necesito monto y el tipo de cambio
+// Para convertir necesito el monto y el tipo de cambio
 async function conversorMoneda (monto, tipoDeCambio) {
   const relacionDeConversion = await solicitarRelacionDeConversion(tipoDeCambio)
   const resultado = parseFloat(monto / relacionDeConversion)
