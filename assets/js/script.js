@@ -6,13 +6,23 @@ const idMyChart = document.getElementById('myChart')
 let chart = ''
 
 idBtnConvertir.addEventListener('click', async () => {
-  const resultConversion = await conversorMoneda(idMontoAConvertir.value, idTipoDeCambio.value)
-  idResultadoConversion.innerHTML = resultConversion.toFixed(2)
-
-  // if (chart) {
-  //   chart.destroy()
-  // }
-  renderGrafica(idTipoDeCambio.value)
+  if ((idMontoAConvertir.value !== '') && (idTipoDeCambio.value !== 'Seleccionar tipo de cambio')) {
+    console.log(typeof (idMontoAConvertir.value))
+    console.log(idTipoDeCambio.value)
+    const resultConversion = await conversorMoneda(idMontoAConvertir.value, idTipoDeCambio.value)
+    idResultadoConversion.innerHTML = resultConversion.toFixed(2)
+    renderGrafica(idTipoDeCambio.value)
+  } else {
+    if (idMontoAConvertir.value === '') {
+      alert('Ingrese el monto en CLP')
+    } else if (idTipoDeCambio.value === 'Seleccionar tipo de cambio') {
+      alert('Seleccione el tipo de cambio')
+    } else {
+      alert('Error no considerado')
+      alert(idMontoAConvertir.value)
+      alert(idTipoDeCambio.value)
+    }
+  }
 })
 
 // Para convertir necesito monto y el tipo de cambio
